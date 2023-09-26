@@ -1,0 +1,39 @@
+<%- include('../common/header-public', {tituloPagina: "Usuarios"}); %>
+<div class="container mt-5">
+    
+    <div>
+        <h1 class="display-2">Bienvenido</h1>
+        <p>
+            Bienvenido a "Mi Foro Web", un espacio virtual donde la creatividad y el intercambio de ideas convergen. Nuestro foro proporciona un entorno 
+            amigable y accesible para que los usuarios puedan crear y compartir publicaciones sobre una amplia variedad de temas.
+        </p>
+        <a href="http://localhost:3000/user/create"><button type="button" class="btn btn-primary">Crear usuario</button></a>
+    </div>
+    
+    <div class="container mt-5">
+      <h1>Lista de Usuarios</h1>
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Correo</th>
+                  <th>Accion</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% users.forEach(function(user) { %>
+                  <tr>
+                      <td><%= user.firstName %></td>
+                      <td><%= user.lastName %></td>
+                      <td><%= user.email %></td>
+                      <td><a href="user/<%= user.id %>"><button type="button" class="btn btn-success">Ver acciones</button></a></td>
+                  </tr>
+              <% }); %>
+          </tbody>
+      </table>
+  </div>
+
+</div>
+
+<%- include('../common/footer'); %>
