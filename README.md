@@ -6,12 +6,13 @@
 ![Sequelize](https://img.shields.io/badge/Sequelize-6.x-orange)
 ![MySQL](https://img.shields.io/badge/MySQL-5.x-blue)
 ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
+
 Mi Foro Web es una aplicación web desarrollada con Node.js, Express, EJS, Sequelize y MySQL que permite a los usuarios crear y compartir publicaciones sobre diversos temas.
 
 ## Características
 
 - Creación y visualización de publicaciones.
-- Carga de imágenes desde URL para enlazarlas con las publicaciones.
+- Carga de imágenes desde URL para enlazarlas con las publicaciones. (Esto sigue en desarrollo Actualmente estoy investigando y leyendo documentación para hacer la implementación)
 - Diseño responsivo con Bootstrap para una experiencia de usuario atractiva en diferentes dispositivos.
 
 ## Requisitos
