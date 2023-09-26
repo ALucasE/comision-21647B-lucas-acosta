@@ -5,7 +5,7 @@
 ![EJS](https://img.shields.io/badge/EJS-3.x-yellow)
 ![Sequelize](https://img.shields.io/badge/Sequelize-6.x-orange)
 ![MySQL](https://img.shields.io/badge/MySQL-5.x-blue)
-
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
 Mi Foro Web es una aplicación web desarrollada con Node.js, Express, EJS, Sequelize y MySQL que permite a los usuarios crear y compartir publicaciones sobre diversos temas.
 
 ## Características
@@ -22,54 +22,44 @@ Mi Foro Web es una aplicación web desarrollada con Node.js, Express, EJS, Seque
 ## Instalación
 
 1. Clona este repositorio:
-
    ```bash
    git clone https://github.com/tuusuario/mi-foro-web.git
    ```
 
-## Voy a describir a continuación los pasos realizados para crear el foro.
+2. Instala las dependencias:
+- npm install express cors ejs helmet morgan sequelize mysql2
 
-- Instalar `node.js` > https://nodejs.org/es
-- Configuración del entorno de desarrollo
-  - npm init --y (Genera un package.json genérico)
-  - En el archivos package-lock.json creamos star y dev (Usamos el comando npm run dev para iniciar con nodemon)
-  - Instalamos Express > npm install express
-  - configuramos app.js con express
-  - Instalamos Sequelize y mySQL > npm install sequelize mysql2
-  - Instalamos Sequelize Cli > npm install --save-dev sequelize-cli
-  - Iniciamos Sequelize Cli > npx sequelize-cli init
-  - Creamos y configuramos el archivo .sequelizerc
-  - instalamos nodemon para ayudarnos en el desarrollo > npm install --save-dev nodemon
-  -
-- Se crean los models
-- Se crean controllers
--
+3. Configura la base de datos en el archivo config.js.
+- En src/config se encuentran los archivos de configuración
 
-# Para crear la tabla de la base de datos
+4. Ejecuta las migraciones para crear las tablas en la base de datos:
+- ```npx sequelize-cli db:migrate```
 
-npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
-npx sequelize-cli db:migrate
+5. Inicia la aplicación:
 
-npx sequelize-cli model:generate --name Post --attributes title:string,content:text,image_url:string
-npx sequelize-cli db:migrate
+- ```npm start```
 
-- Crear las rutas
-- Crear los controladores
+6. Abre tu navegador y accede a http://localhost:3000 para ver el foro en funcionamiento.
+- Esta ruta puede cambiar según la configuración que se ingrese en el punto 3
 
-{
-"firstName": "Maria",
-"lastName": "Rod",
-"email": "mariarod@gmail.com",
-"userName": "MariaRod"
-}
+## Uso
 
-{
-"title": "Post de prueba 02",
-"body": "Este es un post de prueba para verificar el funcionamiendo de la conexion con la BD enviado con el Test 02",
-"image_url": "https://detallesorballo.com/wp-content/uploads/2020/09/imagen-de-prueba-320x240-1.jpg",
-"idUser": 2
-}
+- Al ingresar a la carpeta raíz del proyecto están los enlaces en botones para ir a los usuarios y a las publicaciones.
+- Dentro de estas opciones tienes la opción de crear un usuario/post y se mostrara las acciones de actualizar o eliminar los datos.
+- Las publicaciones se mostrarán en la página /post con su contenido y fecha de creación.
 
-Este es un post de prueba para verificar el funcionamiendo de la conexion con la BD enviado con el ID 01 - Lucas
+## Contribuciones
 
-CREAR BATS para la instalacion de las dependencias y para ejecutar el servidor Node.js
+¡Las contribuciones son bienvenidas! Si quieres mejorar este proyecto, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una rama para tu nueva función: `git checkout -b nueva-funcion.`
+3. Desarrolla y prueba tus cambios.
+4. Haz un commit con tus cambios: `git commit -m "Añade nueva función".`
+5. Sube tus cambios a tu repositorio: `git push origin nueva-funcion.`
+6. Abre un pull request en el repositorio original.
+
+## Licencia
+Este proyecto está bajo licencia de código abierto.
+
+¡Gracias por usar Mi Foro Web! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros.
