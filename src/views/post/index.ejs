@@ -1,47 +1,42 @@
-<%- include('../common/header-public', {tituloPagina: "Publicaciones"}); %>
-<div class="container mt-5">
+<%- include('../common/header-public', {tituloPagina: "Publicaciones" }); %>
+  <div class="container mt-5">
     <div>
-        <h1 class="display-2">Publicaciones</h1>
-        <p>
-            Bienvenido a "Mi Foro Web", un espacio virtual donde la creatividad y el intercambio de ideas convergen. Nuestro foro proporciona un entorno 
-            amigable y accesible para que los usuarios puedan crear y compartir publicaciones sobre una amplia variedad de temas.
-        </p>
+      <h1 class="display-2">Publicaciones</h1>
+      <p>
+        Bienvenido a "Mi Foro Web", un espacio virtual donde la creatividad y el intercambio de ideas convergen. Nuestro
+        foro proporciona un entorno
+        amigable y accesible para que los usuarios puedan crear y compartir publicaciones sobre una amplia variedad de
+        temas.
+      </p>
+      <p>Para actualizas o eliminar las publicaciones deber ir a Sitio usuarios</p>
     </div>
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <!-- variable cont para contar las vueltas del forEaech para el acordeon - ForEach para pasar los datos de la BD -->
-      <% let cont = 0 %>
-      <% posts.forEach(function(post) { %>
-            <% cont +=1 %>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%= cont %>" aria-expanded="false" aria-controls="flush-collapseOne">
-            Titutlo de Post: <%= post.title %>
-          </button>
-        </h2>
-        <div id="flush-collapse<%= cont %>" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            Cuerpo de Post: <%= post.body %>
-            <div class="container-sm">
-              Autor: <%= post.author.firstName %>
+      <% let cont=0 %>
+        <% posts.forEach(function(post) { %>
+          <% cont +=1 %>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapse<%= cont %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <p class="text-center"><strong>Titutlo de Post:</strong> <%= post.title %> <strong>Autor:</strong> <%= post.author.firstName %></p>
+                  
+                </button>
+              </h2>
+              <div id="flush-collapse<%= cont %>" class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <%= post.body %>
+                    <div class="container-sm">
+                      <strong>Fecha de creacion:</strong> <%= post.createdAt %>
+                    </div>
+
+                </div>
+              </div>
             </div>
-            <div class="container-sm">
-              Fecha de creacion: <%= post.createdAt %>
-            </div>
-    
-          </div>
-        </div>
-      </div>
-      <% }); %>
-    
+            <% }); %>
+
     </div>
-        
-</div>
 
-
-
-
-
-
-
-
-<%- include('../common/footer'); %>
+  </div>
+  <%- include('../common/footer'); %>

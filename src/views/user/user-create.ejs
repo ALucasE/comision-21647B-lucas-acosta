@@ -1,22 +1,22 @@
-<%- include('../common/header-public', {tituloPagina: "Crear Usuario"}); %>
+<%- include('../common/header-public', {tituloPagina: "Crear Usuario" }); %>
 
-<div class="container mt-5">
+  <div class="container mt-5">
     <h1> Crear tu Usuario </h1>
     <form action="/user/create" method="post">
-          <div class="form-floating mb-3">
-            <input placeholder="firstName" type="text" class="form-control" name="firstName">
-            <label for="firstName">Nombre</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input placeholder="lastName" type="text" class="form-control" name="lastName">
-            <label for="lastName">Apellido</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input placeholder="email" type="email" class="form-control" name="email">
-            <label for="email">Direccion de correro electronico</label>
-          </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>    
-</div>
+      <div class="form-floating mb-3">
+        <input placeholder="firstName" type="text" class="form-control" name="firstName">
+        <label for="firstName">Nombre</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input placeholder="lastName" type="text" class="form-control" name="lastName">
+        <label for="lastName">Apellido</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input placeholder="email" type="email" class="form-control" name="email">
+        <label for="email">Direccion de correro electronico</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
 
-<%- include('../common/footer'); %>
+  <%- include('../common/footer'); %>

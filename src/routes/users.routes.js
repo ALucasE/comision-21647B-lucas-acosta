@@ -14,7 +14,6 @@ routes.get('/delete/:id', renderDeleteUser)
 routes.get('/:id', getUserById)
 routes.get('/update/:id', renderUpdateUser)
 routes.post('/update/:id', updateUser)
-routes.delete('/:id', deleteUser)
 
 
 module.exports = routes

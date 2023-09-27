@@ -36,12 +36,86 @@ controller.createPost = async (req, res) => {
     try {
       const post = await Post.create(req.body)
       //const post = await Post.create({title, body, image_url, idUser})
-      res.status(201).json(post)
-      //res.redirect('/post')
+      //res.status(201).json(post)
+      res.redirect('/post')
     } catch (error) {
       console.log(error)
       return res.render('common/error', { titulo: 'Error',error: 'Error al crear post', tituloPagina: 'Error 500'})
     }
   }
 
+controller.getPostByIdUser = async (req, res)=>{
+  const { id } = req.params
+  try {
+    const user = await User.findByPk(id)
+    const idUser = user.id
+    const posts = await Post.findAll({where: { idUser }})
+    
+    if (!posts) {
+      console.log(error)
+      return res.render('post/no-post', { titulo: 'Foro Web',error: 'No hay publicaciones disponibles en este momento.', tituloPagina: 'Sin Publicaciones'})
+    }
+    res.render('post/post-accion', { posts , user})
+  } catch (error) {
+    return res.render('common/error', { titulo: 'Error',error: 'Error al con el servidor', tituloPagina: 'Error 500'})
+  }
+}
+
+controller.renderUpdatePost = async (req, res) => {
+  const { id } = req.params
+  try {
+    const post = await Post.findByPk(id)
+
+    if (!post) {
+      return res.render('common/error', { titulo: 'Error',error: 'El post no existe', tituloPagina: 'Error 404'})
+    }
+
+    res.render('post/update', {post})
+  } catch (error) {
+    console.log(error)
+    return res.render('common/error', { titulo: 'Error',error: 'Error en el sistema', tituloPagina: 'Error 500'})
+  }
+}
+
+controller.updatePost = async (req, res)=>{
+  const { id } = req.params
+  const { title, body, image_url } = req.body;
+  try {
+    const post = await Post.findByPk(id)
+    if (!post) {
+      console.log(error)
+      return res.render('post/no-post', { titulo: 'Foro Web',error: 'No hay publicaciones disponibles en este momento.', tituloPagina: 'Sin Publicaciones'})
+    }
+
+    post.title = title
+    if ({body} != ''){
+      post.body = body
+    }else{
+      
+    }    
+    post.image_url = image_url
+    await post.save()
+    return res.redirect('/post')
+  } catch (error) {
+    return res.render('common/error', { titulo: 'Error',error: 'Error al con el servidor', tituloPagina: 'Error 500'})
+  }
+}
+
+controller.renderDeleteUser = async (req, res)=>{
+  const { id } = req.params
+    try {
+      const post = await Post.findByPk(id)
+  
+      if (!post) {
+        console.log(error)
+        return res.render('common/error', { titulo: 'Error',error: 'El post no existe', tituloPagina: 'Error 404'})
+      }
+      await post.destroy()
+      return res.redirect('/post')
+    } catch (error) {
+      console.log(error)
+      return res.render('common/error', { titulo: 'Error',error: 'Error en el sistema', tituloPagina: 'Error 500'})
+      
+    }
+}
 module.exports = controller

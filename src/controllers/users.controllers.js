@@ -106,21 +106,4 @@ controller.renderDeleteUser = async (req,res)=>{
     }
 }
 
-controller.deleteUser = async (req, res) => {
-    const { id } = req.params
-    try {
-      const user = await User.findByPk(id)
-  
-      if (!user) {
-        return res.status(404).json({ error: 'Usuario no encontrado.' })
-      }
-      
-      await user.destroy()
-      return res.status(200).json({ message: 'Usuario eliminado exitosamente' })
-    } catch (error) {
-      console.log(error)
-      return res.status(500).json({ error: 'Error al obtener los usuarios' })
-    }
-  }
-
 module.exports = controller
