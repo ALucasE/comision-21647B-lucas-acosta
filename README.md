@@ -23,24 +23,29 @@ Mi Foro Web es una aplicación web desarrollada con Node.js, Express, EJS, Seque
 ## Instalación
 
 1. Clona este repositorio:
+
    ```bash
    git clone https://github.com/tuusuario/mi-foro-web.git
    ```
 
 2. Instala las dependencias:
-- npm install express cors ejs helmet morgan sequelize mysql2
+
+- `npm i` - instala todas las dependencias: express cors ejs helmet morgan sequelize mysql2
 
 3. Configura la base de datos en el archivo config.js.
+
 - En src/config se encuentran los archivos de configuración
 
 4. Ejecuta las migraciones para crear las tablas en la base de datos:
-- ```npx sequelize-cli db:migrate```
+
+- `npx sequelize-cli db:migrate`
 
 5. Inicia la aplicación:
 
-- ```npm start```
+- `npm start`
 
 6. Abre tu navegador y accede a http://localhost:3000 para ver el foro en funcionamiento.
+
 - Esta ruta puede cambiar según la configuración que se ingrese en el punto 3
 
 ## Uso
@@ -61,6 +66,7 @@ Mi Foro Web es una aplicación web desarrollada con Node.js, Express, EJS, Seque
 6. Abre un pull request en el repositorio original.
 
 ## Licencia
+
 Este proyecto está bajo licencia de código abierto.
 
 ¡Gracias por usar Mi Foro Web! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros.
